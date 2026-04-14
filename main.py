@@ -6,14 +6,13 @@ from routers import users, products, auth
 app = FastAPI(title="Codit API")
 
 origins = [
- "http://localhost:4200",
- "http://127.0.0.1:4200",
+    "*"
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_credentials=True,
+    allow_credentials=False,  # Debe ser False cuando se usa "*" en origins
     allow_methods=["*"],
     allow_headers=["*"],
 )
